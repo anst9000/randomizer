@@ -40,6 +40,7 @@ const addEventListeners = () => {
   randomNumberButton.addEventListener("click", getRandomNumber)
 
   inputField.addEventListener("keyup", enterKey)
+  uniqueCheckbox.addEventListener("change", uniqueRandom)
 
   itemForm.addEventListener("submit", processForm);
 }
@@ -189,12 +190,16 @@ const uniqueRandom = () => {
   }
 }
 
-function main() {
-  removeEventListener("load", main);
-
+const resetAll = () => {
   document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
   listSection.style.display = "none";
   numberSection.style.display = "none";
+}
+
+function main() {
+  removeEventListener("load", main);
+
+  resetAll()
 
   addEventListeners()
 }
